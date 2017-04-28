@@ -1,5 +1,5 @@
 project "Lua_Server"
-	language "C++"
+	language "C++11"
 	targetname "lua5.1"
 
 	vpaths { 
@@ -26,9 +26,9 @@ project "Lua_Server"
 		targetdir(buildpath("server/x64"))
 
 
-if os.get() == "windows" then
+if os.target() == "windows" then
 	project "Lua_Client"
-		language "C++"
+		language "C++11"
 		kind "SharedLib"
 		targetname "lua5.1c"
 		targetdir(buildpath("mods/deathmatch"))

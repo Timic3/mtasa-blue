@@ -1,5 +1,5 @@
 project "Client Launcher"
-	language "C++"
+	language "C++11"
 	kind "WindowedApp"
 	targetname "Multi Theft Auto"
 	targetdir(buildpath("."))
@@ -9,7 +9,7 @@ project "Client Launcher"
 	pchheader "StdInc.h"
 	pchsource "StdInc.cpp"
 	
-	flags { "WinMain" }
+	entrypoint "WinMainCRTStartup"
 	
 	vpaths { 
 		["Headers/*"] = "**.h",

@@ -1,5 +1,5 @@
 project "CEFLauncher DLL"
-	language "C++"
+	language "C++11"
 	kind "SharedLib"
 	targetname "CEFLauncher_DLL"
 	targetdir(buildpath("mta/cef"))

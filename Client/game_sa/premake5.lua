@@ -1,5 +1,5 @@
 project "Game SA"
-	language "C++"
+	language "C++11"
 	kind "SharedLib"
 	targetname "game_sa"
 	targetdir(buildpath("mta"))

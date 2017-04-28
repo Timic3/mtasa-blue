@@ -1,5 +1,5 @@
 project "Client Deathmatch"
-	language "C++"
+	language "C++11"
 	kind "SharedLib"
 	targetname "client"
 	targetdir(buildpath("mods/deathmatch"))

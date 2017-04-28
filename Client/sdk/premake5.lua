@@ -1,5 +1,5 @@
 project "Client SDK"
-	language "C++"
+	language "C++11"
 	kind "StaticLib"
 	targetname "sdk"
 	

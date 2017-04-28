@@ -1,5 +1,5 @@
 project "sqlite"
-	language "C++"
+	language "C++11"
 	kind "StaticLib"
 	targetname "sqlite"
 	

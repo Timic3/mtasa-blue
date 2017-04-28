@@ -1,5 +1,5 @@
 project "GUI"
-	language "C++"
+	language "C++11"
 	kind "SharedLib"
 	targetname "cgui"
 	targetdir(buildpath("mta"))

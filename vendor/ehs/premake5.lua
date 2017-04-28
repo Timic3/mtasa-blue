@@ -1,5 +1,5 @@
 project "ehs"
-	language "C++"
+	language "C++11"
 	kind "StaticLib"
 	targetname "ehs"
 	includedirs { "../pcre", "../pme" }

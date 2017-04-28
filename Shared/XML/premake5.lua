@@ -1,5 +1,5 @@
 project "XML"
-	language "C++"
+	language "C++11"
 	kind "SharedLib"
 	targetname "xmll"
 	targetdir(buildpath("server"))

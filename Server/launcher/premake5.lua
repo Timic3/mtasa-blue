@@ -1,5 +1,5 @@
 project "Launcher"
-	language "C++"
+	language "C++11"
 	kind "ConsoleApp"
 	targetdir(buildpath("server"))
 	

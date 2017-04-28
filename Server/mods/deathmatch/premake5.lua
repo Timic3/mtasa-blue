@@ -1,5 +1,5 @@
 project "Deathmatch"
-	language "C++"
+	language "C++11"
 	kind "SharedLib"
 	targetname "deathmatch"
 	targetdir(buildpath("server/mods/deathmatch"))

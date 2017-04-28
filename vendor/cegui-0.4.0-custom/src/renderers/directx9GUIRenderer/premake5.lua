@@ -1,5 +1,5 @@
 project "DirectX9GUIRenderer"
-	language "C++"
+	language "C++11"
 	kind "StaticLib"
 	targetname "DirectX9GUIRenderer"
 	

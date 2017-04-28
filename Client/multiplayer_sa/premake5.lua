@@ -1,5 +1,5 @@
 project "Multiplayer SA"
-	language "C++"
+	language "C++11"
 	kind "SharedLib"
 	targetname "multiplayer_sa"
 	targetdir(buildpath("mta"))

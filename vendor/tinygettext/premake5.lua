@@ -1,5 +1,5 @@
 project "tinygettext"
-	language "C++"
+	language "C++11"
 	kind "StaticLib"
 	targetname "tinygettext"
 	

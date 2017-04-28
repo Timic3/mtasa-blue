@@ -1,5 +1,5 @@
 project "Shared"
-	language "C++"
+	language "C++11"
 	kind "StaticLib"
 	targetname "shared"
 		

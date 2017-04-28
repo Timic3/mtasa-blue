@@ -1,6 +1,6 @@
 project "CEF"
 	targetname "CEF"
-	language "C++"
+	language "C++11"
 	kind "StaticLib"
 
 	includedirs { "." }

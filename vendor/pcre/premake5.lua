@@ -1,5 +1,5 @@
 project "pcre"
-	language "C++"
+	language "C++11"
 	targetname "pcre3"
 	
 	defines { "HAVE_CONFIG_H" }

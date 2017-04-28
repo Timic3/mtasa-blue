@@ -1,5 +1,5 @@
 project "CEGUI"
-	language "C++"
+	language "C++11"
 	kind "StaticLib"
 	targetname "CEGUI"
 	

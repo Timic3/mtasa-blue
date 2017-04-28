@@ -1,5 +1,5 @@
 project "json-c"
-	language "C++"
+	language "C++11"
 	kind "StaticLib"
 	targetname "json-c"
 	

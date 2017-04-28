@@ -1,5 +1,5 @@
 project "blowfish_bcrypt"
-	language "C++"
+	language "C++11"
 	kind "StaticLib"
 	targetname "blowfish_bcrypt"
 	

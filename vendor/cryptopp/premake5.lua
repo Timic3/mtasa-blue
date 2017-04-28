@@ -1,5 +1,5 @@
 project "cryptopp"
-	language "C++"
+	language "C++11"
 	kind "StaticLib"
 	targetname "cryptopp"
 	

@@ -1,5 +1,5 @@
 project "pthread"
-	language "C++"
+	language "C++11"
 	kind "SharedLib"
 	targetname "pthread"
 	targetdir(buildpath("server"))

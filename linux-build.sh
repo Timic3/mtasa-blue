@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [[ "$(uname -m)" == 'x86_64' ]]; then
-    PREMAKE5=utils/premake5_x64
-    CONFIG=release_x64
-else
-    PREMAKE5=utils/premake5_x86
-    CONFIG=release_x86
+PREMAKE5=utils/premake5
+CONFIG=release_x64
+
+if ! [[ "$(uname -m)" == 'x86_64' ]]; then
+    echo "Compiling on x86 is not supported"
+	exit 1
 fi
 
 # Clean old build files

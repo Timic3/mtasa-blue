@@ -1,5 +1,5 @@
 project "jpeg"
-	language "C++"
+	language "C++11"
 	kind "StaticLib"
 	targetname "jpeg"
 	

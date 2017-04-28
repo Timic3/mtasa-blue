@@ -1,5 +1,5 @@
 project "Loader"
-	language "C++"
+	language "C++11"
 	kind "SharedLib"
 	targetname "loader"
 	targetdir(buildpath("mta"))

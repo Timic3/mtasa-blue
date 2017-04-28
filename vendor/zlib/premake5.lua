@@ -1,5 +1,5 @@
 project "zlib"
-	language "C++"
+	language "C++11"
 	kind "StaticLib"
 	targetname "zlib"
 	

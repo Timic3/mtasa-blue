@@ -1,5 +1,5 @@
 project "CEFLauncher"
-	language "C++"
+	language "C++11"
 	kind "WindowedApp"
 	targetname "CEFLauncher"
 	targetdir(buildpath("mta/cef"))
@@ -7,7 +7,7 @@ project "CEFLauncher"
 	includedirs { "../sdk" }
 	
 	links { "CEFLauncher DLL"}
-	flags { "WinMain" }
+	entrypoint "WinMainCRTStartup"
 
 	vpaths { 
 		["Headers/*"] = "**.h",

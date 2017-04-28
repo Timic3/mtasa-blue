@@ -1,5 +1,5 @@
 project "Core"
-	language "C++"
+	language "C++11"
 	kind "SharedLib"
 	targetname "core"
 	targetdir(buildpath("server"))
