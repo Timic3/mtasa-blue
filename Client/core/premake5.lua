@@ -17,11 +17,12 @@ project "Client Core"
 			"../../vendor/zlib",
 			"../../vendor/jpeg-9b",
 			"../../vendor/pthreads/include",
-			"../../vendor/sparsehash/src/"
+			"../../vendor/sparsehash/src/",
+			"../../vendor/discord-rpc/include"
 		}
 
 	libdirs {
-		"../../vendor/detours/lib",
+		"../../vendor/detours/lib"
 	}
 	
 
