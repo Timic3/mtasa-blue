@@ -17,8 +17,7 @@ project "Client Core"
 			"../../vendor/zlib",
 			"../../vendor/jpeg-9b",
 			"../../vendor/pthreads/include",
-			"../../vendor/sparsehash/src/",
-			"../../vendor/discord-rpc/include"
+			"../../vendor/sparsehash/src/"
 		}
 
 	libdirs {
@@ -47,7 +46,7 @@ project "Client Core"
 	links {
 		"ws2_32", "d3dx9", "Userenv", "DbgHelp", "xinput", "Imagehlp", "dxguid", "dinput8", 
 		"strmiids",	"odbc32", "odbccp32", "shlwapi", "winmm", "gdi32", "Imm32", "Psapi", 
-		"pthread", "libpng", "jpeg", "zlib", "tinygettext", "detours", "discord-rpc"
+		"pthread", "libpng", "jpeg", "zlib", "tinygettext", "detours"
 	}
 
 	defines {

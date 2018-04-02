@@ -198,6 +198,8 @@ int CClient::ClientInitialize(const char* szArguments, CCoreInterface* pCore)
         }
     }
 
+    discord.Initialize();
+
     // Success
     return 0;
 }
@@ -214,6 +216,8 @@ void CClient::ClientShutdown(void)
         delete g_pClientGame;
         g_pClientGame = NULL;
     }
+
+    discord.Shutdown();
 }
 
 void CClient::PreFrameExecutionHandler(void)

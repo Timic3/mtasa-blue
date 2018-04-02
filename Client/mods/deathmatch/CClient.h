@@ -13,6 +13,7 @@
 #define __CCLIENT_H
 
 #include <core/CClientBase.h>
+#include <logic/CDiscordRPC.h>
 
 class CClient : public CClientBase
 {
@@ -33,6 +34,8 @@ public:
 
     bool HandleException(CExceptionInformation* pExceptionInformation);
     void GetPlayerNames(std::vector<SString>& vPlayerNames);
+
+    CDiscordRPC discord;
 };
 
 #endif
