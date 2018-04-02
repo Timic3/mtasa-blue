@@ -17,7 +17,7 @@ void CDiscordRPC::Initialize()
 
     handlers = {};
 
-    //Discord_Initialize("430081389862322178", &handlers, 1, nullptr);
+    Discord_Initialize("430081389862322178", &handlers, 1, nullptr);
 
     bInitialized = true;
 }
@@ -26,7 +26,7 @@ void CDiscordRPC::Shutdown()
 {
     if (bInitialized)
     {
-        //Discord_Shutdown();
+        Discord_Shutdown();
 
         bInitialized = false;
     }
