@@ -902,6 +902,8 @@ void CGraphics::DrawStringQueued(float fLeft, float fTop, float fRight, float fB
         Item.Text.fRotationCenterX = fRotationCenterX;
         Item.Text.fRotationCenterY = fRotationCenterY;
 
+        g_pCore->DebugPrintf("NCC: %f %f %lu", fLeft, fRight, ulFormat);
+
         // Convert to wstring
         Item.wstrText = MbUTF8ToUTF16(szText);
 
@@ -1051,16 +1053,18 @@ void CGraphics::DrawColorCodedTextLine(float fLeft, float fRight, float fY, SCol
 
         Item.Text.fLeft = fLeft;
         Item.Text.fTop = fTop;
-        Item.Text.fRight = fLeft;
-        Item.Text.fBottom = fTop;
+        Item.Text.fRight = 2 * fRight;
+        Item.Text.fBottom = fTop + 100;
         Item.Text.ulColor = section.color;
         Item.Text.fScaleX = fScaleX;
         Item.Text.fScaleY = fScaleY;
-        Item.Text.ulFormat = DT_NOCLIP;
+        Item.Text.ulFormat = ulFormat;
         Item.Text.pDXFont = pDXFont;
         Item.Text.fRotation = fRotation;
         Item.Text.fRotationCenterX = fRotationCenterX;
         Item.Text.fRotationCenterY = fRotationCenterY;
+
+        g_pCore->DebugPrintf("CC: %f %f %f %lu", fLeft, fRight, fTotalWidth, 0x01);
 
         Item.wstrText = section.wstrText;
 
