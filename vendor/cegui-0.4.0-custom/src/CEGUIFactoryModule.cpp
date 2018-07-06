@@ -23,12 +23,10 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 *************************************************************************/
-#include "StdInc.h"
 #include "CEGUIBase.h"
 #include "CEGUIString.h"
 #include "CEGUIExceptions.h"
 #include "CEGUIFactoryModule.h"
-#include "..\widgetsets\falagard\include\falmodule.h"
 
 #if defined(__WIN32__) || defined(_WIN32)
 #	if defined(_MSC_VER)
@@ -63,10 +61,6 @@ const char  FactoryModule::RegisterAllFunctionName[]     = "registerAllFactories
 FactoryModule::FactoryModule(const String& filename) :
 	d_moduleName(filename)
 {
-	// Statically linked factory modules (e.g. falagard), so skip!
-
-	/**
-
 #if defined(__linux__)
 	// dlopen() does not add .so to the filename, like windows does for .dll
 	if (d_moduleName.substr(d_moduleName.length() - 3, 3) != (utf8*)".so")
@@ -103,8 +97,6 @@ FactoryModule::FactoryModule(const String& filename) :
     // functions are now optional, and only throw upon the first attempt to use a missing function.
     d_regFunc = (FactoryRegisterFunction)DYNLIB_GETSYM(d_handle, RegisterFactoryFunctionName);
     d_regAllFunc = (RegisterAllFunction)DYNLIB_GETSYM(d_handle, RegisterAllFunctionName);
-
-	**/
 }
 
 
@@ -133,23 +125,13 @@ void FactoryModule::registerFactory(const String& type) const
 
 uint FactoryModule::registerAllFactories() const
 {
-	// Statically linked factory modules (e.g. falagard), so skip!
-	
-	/**
-
-	// are we attempting to use a missing function export
+    // are we attempting to use a missing function export
     if (!d_regAllFunc)
     {
         throw InvalidRequestException("FactoryModule::registerAllFactories - Required function export 'uint registerAllFactories(void)' was not found in module '" + d_moduleName + "'.");
     }
 
     return d_regAllFunc();
-
-	**/
-
-	registerAllFactoriesF();
-
-	return 1;
 }
 
 } // End of  CEGUI namespace section
