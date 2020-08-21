@@ -3,8 +3,6 @@ project "tinyxml"
 	kind "StaticLib"
 	targetname "tinyxml"
 
-	buildoptions { "/MP" }
-
 	defines { "TIXML_USE_STL" }
 
 	vpaths {

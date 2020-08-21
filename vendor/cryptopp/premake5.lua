@@ -3,8 +3,6 @@ project "cryptopp"
 	kind "StaticLib"
 	targetname "cryptopp"
 
-	buildoptions { "/MP" }
-
 	vpaths {
 		["Headers/*"] = "**.h",
 		["Sources"] = "**.cpp",

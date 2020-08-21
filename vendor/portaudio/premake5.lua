@@ -3,8 +3,6 @@ project "portaudio"
 	kind "StaticLib"
 	targetname "portaudio"
 
-	buildoptions { "/MP" }
-
 	disablewarnings { "4996" }
 
 	vpaths {

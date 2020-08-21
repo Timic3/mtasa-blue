@@ -3,8 +3,6 @@ project "jpeg"
 	kind "StaticLib"
 	targetname "jpeg"
 
-	buildoptions { "/MP" }
-
 	vpaths {
 		["Headers/*"] = "**.h",
 		["Sources/*"] = "**.c",

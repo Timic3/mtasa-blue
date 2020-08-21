@@ -3,8 +3,6 @@ project "zip"
 	kind "StaticLib"
 	targetname "zip"
 
-	buildoptions { "/MP" }
-
 	includedirs  { "../zlib" }
 
 	vpaths {

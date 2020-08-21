@@ -3,8 +3,6 @@ project "sqlite"
 	kind "StaticLib"
 	targetname "sqlite"
 
-	buildoptions { "/MP" }
-
 	vpaths {
 		["Headers/*"] = "*.h",
 		["Sources/*"] = "*.c",

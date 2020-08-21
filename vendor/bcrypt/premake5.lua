@@ -3,8 +3,6 @@ project "blowfish_bcrypt"
 	kind "StaticLib"
 	targetname "blowfish_bcrypt"
 
-	buildoptions { "/MP" }
-
 	vpaths {
 		["Headers/*"] = "*.h",
 		["Sources/*"] = "*.c",

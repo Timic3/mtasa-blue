@@ -3,8 +3,6 @@ project "zlib"
 	kind "StaticLib"
 	targetname "zlib"
 
-	buildoptions { "/MP" }
-
 	vpaths {
 		["Headers/*"] = "*.h",
 		["Sources/*"] = "*.c",

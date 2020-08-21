@@ -3,8 +3,6 @@ project "mbedtls"
 	kind "StaticLib"
 	targetname "mbedtls"
 
-	buildoptions { "/MP" }
-
 	defines { "MBEDTLS_ZLIB_SUPPORT" }
 	includedirs { "include", "../zlib" }
 	warnings "off"

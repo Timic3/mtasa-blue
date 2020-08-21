@@ -3,8 +3,6 @@ project "CEGUI"
 	kind "StaticLib"
 	targetname "CEGUI"
 
-	buildoptions { "/MP" }
-
 	pchheader "StdInc.h"
 	pchsource "src/StdInc.cpp"
 
