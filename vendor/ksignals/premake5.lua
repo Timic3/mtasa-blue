@@ -3,6 +3,8 @@ project "ksignals"
 	kind "StaticLib"
 	targetname "ksignals"
 
+	buildoptions { "/MP" }
+
 	vpaths {
 		["Headers/*"] = "**.h",
 		["*"] = "premake5.lua"

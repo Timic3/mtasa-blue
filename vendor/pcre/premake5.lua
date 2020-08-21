@@ -2,6 +2,8 @@ project "pcre"
 	language "C++"
 	targetname "pcre3"
 
+	buildoptions { "/MP" }
+
 	defines { "HAVE_CONFIG_H" }
 	includedirs { "." }
 

@@ -3,6 +3,8 @@ project "json-c"
 	kind "StaticLib"
 	targetname "json-c"
 
+	buildoptions { "/MP" }
+
 	includedirs { "." }
 	defines { "_LIB" }
 

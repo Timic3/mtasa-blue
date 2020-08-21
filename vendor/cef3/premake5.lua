@@ -3,6 +3,8 @@ project "CEF"
 	language "C++"
 	kind "StaticLib"
 
+	buildoptions { "/MP" }
+
 	includedirs { "." }
 	-- Check this: https://bitbucket.org/chromiumembedded/cef/src/48908c919591afadac3383effbc5f21a2d40f637/cmake/cef_variables.cmake.in?at=master&fileviewer=file-view-default
 	defines { "__STDC_CONSTANT_MACROS", "__STDC_FORMAT_MACROS", "_FILE_OFFSET_BITS=64",

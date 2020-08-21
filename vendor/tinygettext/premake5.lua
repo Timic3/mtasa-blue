@@ -3,6 +3,8 @@ project "tinygettext"
 	kind "StaticLib"
 	targetname "tinygettext"
 
+	buildoptions { "/MP" }
+
 	includedirs { "." }
 
 	vpaths {

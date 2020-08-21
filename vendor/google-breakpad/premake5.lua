@@ -3,6 +3,8 @@ project "breakpad"
 	kind "StaticLib"
 	targetname "breakpad"
 
+	buildoptions { "/MP" }
+
 	includedirs { "src", "src/third_party/glog/src" }
 	vpaths {
 		["Headers/*"] = "src/**.h",

@@ -4,6 +4,8 @@ project "pthread"
 	targetname "pthread"
 	targetdir(buildpath("server"))
 
+	buildoptions { "/MP" }
+
 	includedirs {
 		"include"
 	}

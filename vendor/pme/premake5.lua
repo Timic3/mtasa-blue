@@ -3,6 +3,8 @@ project "pme"
 	kind "StaticLib"
 	targetname "pme"
 
+	buildoptions { "/MP" }
+
 	includedirs { "../pcre" }
 
 	vpaths {

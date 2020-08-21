@@ -4,6 +4,8 @@ project "ehs"
 	targetname "ehs"
 	includedirs { "../pcre", "../pme" }
 
+	buildoptions { "/MP" }
+
 	defines { "WIN32_LEAN_AND_MEAN", "_LIB" }
 
 	vpaths {

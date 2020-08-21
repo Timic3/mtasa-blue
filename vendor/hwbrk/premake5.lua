@@ -3,6 +3,8 @@ project "hwbrk"
 	kind "StaticLib"
 	targetname "hwbrk"
 
+	buildoptions { "/MP" }
+
 	vpaths {
 		["Headers/*"] = "**.h",
 		["Sources/*"] = "**.cpp",

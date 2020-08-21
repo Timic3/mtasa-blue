@@ -3,6 +3,8 @@ project "libspeex"
 	kind "StaticLib"
 	targetname "libspeex"
 
+	buildoptions { "/MP" }
+
 	disablewarnings {
 		"4244", -- warning C4244: '=': conversion from '?' to '?', possible loss of data
 		"4305", -- warning C4305: 'initializing': truncation from '?' to '?'

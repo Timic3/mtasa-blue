@@ -2,6 +2,8 @@ project "Lua_Server"
 	language "C++"
 	targetname "lua5.1"
 
+	buildoptions { "/MP" }
+
 	vpaths { 
 		["Headers"] = "**.h",
 		["Sources"] = "**.c",
@@ -34,6 +36,8 @@ if os.target() == "windows" then
 		targetname "lua5.1c"
 		targetdir(buildpath("mods/deathmatch"))
 
+		buildoptions { "/MP" }
+
 		vpaths { 
 			["Headers"] = "**.h",
 			["Sources"] = "**.c",
@@ -51,6 +55,6 @@ if os.target() == "windows" then
 			"LUA_BUILD_AS_DLL"
 		}
 
-        filter "platforms:x64"
-            flags { "ExcludeFromBuild" } 
+		filter "platforms:x64"
+			flags { "ExcludeFromBuild" }
 end

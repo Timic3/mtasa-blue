@@ -3,6 +3,8 @@ project "unrar"
 	kind "StaticLib"
 	targetname "unrar"
 
+	buildoptions { "/MP" }
+
 	defines { "RARDLL" }
 
 	vpaths {
