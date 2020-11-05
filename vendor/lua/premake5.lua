@@ -1,8 +1,83 @@
-project "Lua_Server"
+project "minilua"
 	language "C++"
-	targetname "lua5.1"
+	targetname "minilua"
+	kind "ConsoleApp"
+	targetdir "src"
+	targetsuffix ""
 
-	vpaths { 
+	linkoptions { "/SAFESEH:NO", "/RELEASE" }
+
+	vpaths {
+		["Headers"] = "**.h",
+		["Sources"] = "**.c",
+		["*"] = "premake5.lua"
+	}
+
+	files {
+		"premake5.lua",
+		"src/host/minilua.c"
+	}
+
+	defines { "_CRT_SECURE_NO_DEPRECATE", "_CRT_STDIO_INLINE=__declspec(dllexport)__inline" }
+
+	postbuildcommands {
+		"{CHDIR} %{wks.location}/../vendor/lua/src",
+		"minilua ../dynasm/dynasm.lua -LN -D WIN -D JIT -D FFI -o host/buildvm_arch.h vm_x86.dasc"
+	}
+
+project "buildvm"
+	language "C++"
+	targetname "buildvm"
+	kind "ConsoleApp"
+	targetdir "src"
+	targetsuffix ""
+
+	dependson "minilua"
+
+	linkoptions { "/SAFESEH:NO", "/RELEASE" }
+
+	vpaths {
+		["Headers"] = "**.h",
+		["Sources"] = "**.c",
+		["*"] = "premake5.lua"
+	}
+
+	includedirs {
+		"dynasm", "src"
+	}
+
+	files {
+		"premake5.lua",
+		"src/host/buildvm*.c"
+	}
+
+	defines { "_CRT_SECURE_NO_DEPRECATE", "_CRT_STDIO_INLINE=__declspec(dllexport)__inline" }
+
+	postbuildcommands {
+		"{CHDIR} %{wks.location}/../vendor/lua/src",
+		"buildvm -m peobj -o lj_vm.obj",
+		"buildvm -m bcdef -o lj_bcdef.h lib_base.c lib_math.c lib_bit.c lib_string.c lib_table.c lib_io.c lib_os.c lib_package.c lib_debug.c lib_jit.c lib_ffi.c lib_utf8.c",
+		"buildvm -m ffdef -o lj_ffdef.h lib_base.c lib_math.c lib_bit.c lib_string.c lib_table.c lib_io.c lib_os.c lib_package.c lib_debug.c lib_jit.c lib_ffi.c lib_utf8.c",
+		"buildvm -m libdef -o lj_libdef.h lib_base.c lib_math.c lib_bit.c lib_string.c lib_table.c lib_io.c lib_os.c lib_package.c lib_debug.c lib_jit.c lib_ffi.c lib_utf8.c",
+		"buildvm -m recdef -o lj_recdef.h lib_base.c lib_math.c lib_bit.c lib_string.c lib_table.c lib_io.c lib_os.c lib_package.c lib_debug.c lib_jit.c lib_ffi.c lib_utf8.c",
+		"buildvm -m vmdef -o jit/vmdef.lua lib_base.c lib_math.c lib_bit.c lib_string.c lib_table.c lib_io.c lib_os.c lib_package.c lib_debug.c lib_jit.c lib_ffi.c lib_utf8.c",
+		"buildvm -m folddef -o lj_folddef.h lj_opt_fold.c"
+	}
+
+project "Lua"
+	language "C++"
+	kind "SharedLib"
+	targetname "lua51"
+	targetdir "src"
+	targetsuffix ""
+
+	linkoptions { "/SAFESEH:NO" }
+
+	dependson { "buildvm" }
+
+	libdirs { "src" }
+
+	vpaths {
 		["Headers"] = "**.h",
 		["Sources"] = "**.c",
 		["*"] = "premake5.lua"
@@ -10,47 +85,19 @@ project "Lua_Server"
 	
 	files {
 		"premake5.lua",
-		"src/**.c",
-		"src/**.h",
+		"src/lj_*.c",
+		"src/lib_*.c",
 	}
 
-	defines { "LUA_BUILD_AS_DLL" }
+	buildoptions {
+		"/arch:SSE2", "/MD"
+	}
 
-	filter "system:windows"
-		kind "SharedLib"
-		targetdir(buildpath("server/mods/deathmatch"))
+	defines {
+		"_CRT_SECURE_NO_DEPRECATE",
+		"_CRT_STDIO_INLINE=__declspec(dllexport)__inline",
+		"LUA_USE_APICHECK",
+		"LUA_BUILD_AS_DLL"
+	}
 
-	filter "system:not windows"
-		kind "StaticLib"
-
-	filter {"system:windows", "platforms:x64"}
-		targetdir(buildpath("server/x64"))
-
-
-if os.target() == "windows" then
-	project "Lua_Client"
-		language "C++"
-		kind "SharedLib"
-		targetname "lua5.1c"
-		targetdir(buildpath("mods/deathmatch"))
-
-		vpaths { 
-			["Headers"] = "**.h",
-			["Sources"] = "**.c",
-			["*"] = "premake5.lua"
-		}
-	
-		files {
-			"premake5.lua",
-			"src/**.c",
-			"src/**.h",
-		}
-	
-		defines {
-			"LUA_USE_APICHECK",
-			"LUA_BUILD_AS_DLL"
-		}
-
-        filter "platforms:x64"
-            flags { "ExcludeFromBuild" } 
-end
+	links { "./src/lj_*.obj", "./src/lib_*.obj" }
